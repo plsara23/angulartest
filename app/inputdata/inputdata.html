@@ -1,0 +1,46 @@
+<script>
+    angular.module('dateInputExample', [])
+        .controller('DateController', ['$scope', function($scope) {
+            $scope.example = {
+                value: new Date(2013, 9, 22)
+            };
+        }]);
+</script>
+
+<div form="inputform" ng-controller="InputController as dateCtrl" ui-view ng-submit="InputController.saveData()">
+    <h1>Enter Birthday Information</h1>
+    <br>
+    <div class="panel-body">
+        <div class="row">
+            <label>Enter Name:</label>
+            <input type="text"
+                   id="username"
+                   name="username"
+                   ng-required="true"
+                   ng-model="inputController.currentrecord.username">
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label"><i class="fa fa-calendar"></i><i class="icon-required"></i>Enter Birthday[MM-DD-YYYY]</label>
+                <input type="date" id="birthdate" name="birthdate" ng-model="inputController.currentRecord.birthdate"
+                       placeholder="MM-dd-YYYY"
+                       required />
+            </div>
+            <span class="error" ng-if="inputform.birthdate.$invalid && inputform.birthdate.$dirty">
+				 Not a valid date!
+			</span>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <input type = "submit" value="Save"
+               title="Click to save data">
+        </input>
+    </div>
+
+</div>
+
+
